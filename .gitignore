@@ -1,0 +1,2 @@
+./example/compute/*.go
+./example/sayHello/*.go
