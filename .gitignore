@@ -1,2 +1,5 @@
-./example/compute/*.go
-./example/sayHello/*.go
+example/compute/*.go
+example/compute/*.json
+example/sayhello/*.go
+example/sayhello/*.json
+

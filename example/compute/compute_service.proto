@@ -1,0 +1,27 @@
+syntax = "proto3";
+package compute;
+
+import "google/api/annotations.proto";
+
+
+message ComputeRequest {
+  int64 a = 1;
+  int64 b = 2;
+  int64 c = 3;
+
+}
+message ComputeResponse {
+  int64 result = 1;
+  string ser = 2;
+
+}
+
+
+service ComputeService {
+    rpc Compute(ComputeRequest) returns (ComputeResponse) {
+    option (google.api.http) = {
+      post: "/v1/example/compute"
+      body: "*"
+    };
+  }
+}
