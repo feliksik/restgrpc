@@ -24,9 +24,13 @@ If you want to run a stand-alone process as a REST->GRPC gateway, you don't want
 
 Use the  [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) code to generate the proxy code, which exports a Register[YOURSERVICE]Handler() method.  
 
-The commands are in the generate-proxy.sh script. 
+The commands are in the generate-proxy.sh script, which generates: 
 
-Then start your proxy as follows: 
+* the .pb.gw.go, which is the only one strictly necessary: you will use the RegisterXXXHandler() method. 
+* the .pb.go , which you should have already used and implemented a GRPC service for (unless you implemented the GRPC service in another language)
+* the .swagger.json, which documents your REST service and is nice to generate documentation (hint: do paste it in http://editor.swagger.io ).
+
+Then implement your gateway process as follows: 
   
 ``` go
 gateway := restgrpc.NewGateway()
